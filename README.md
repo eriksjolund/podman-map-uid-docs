@@ -19,9 +19,9 @@ use these debugging techniques to find out information about the container image
 * Let the bind-mounted directory have permissive permissions (`chmod 777 dir`). After the container has run check which file permissions a newly create file has. See example in [Podman troubleshooting tip](https://github.com/containers/podman/blob/main/troubleshooting.md#34-container-creates-a-file-that-is-not-owned-by-the-users-regular-uid).
 * Trace the use of UIDs and GIDs with the Linux kernel feature [EBPF](https://ebpf.io).
 
-### Example: trace open system calls in an Nginx container with Inspector Gadget
+### Example: trace open system calls in an Nginx container with Inspektor Gadget
 
-Inspector Gadget (https://www.inspektor-gadget.io) is an eBPF tool and systems inspection framework.
+Inspektor Gadget (https://www.inspektor-gadget.io) is an eBPF tool and systems inspection framework.
 
 The container image _ghcr.io/inspektor-gadget/ig_ needs to be run with `sudo podman run --privileged ...` 
 The container process has full access to the host which means that you need to trust that the container
@@ -42,7 +42,7 @@ in a Linux VM, for example [Fedora CoreOS](https://fedoraproject.org/coreos/down
    dir=/usr/share/nginx/html
    ```
    (The shell variable name `dir` was arbitrarily chosen. The variable is used to make this tutorial easier to understand)
-5. In terminal 1 start the Inspector Gadget container
+5. In terminal 1 start the Inspektor Gadget container
    ```
    sudo podman run \
      -ti \
