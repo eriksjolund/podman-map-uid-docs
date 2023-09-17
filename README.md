@@ -1,6 +1,6 @@
 # podman-map-uid-docs
 
-Documenation of how to map UIDs and GIDs with Podman
+Documentation of how to map UIDs and GIDs with Podman
 
 ## Trace which UIDs and GIDs are used in a container with EBPF
 
@@ -13,10 +13,10 @@ Conclusions that can be made from that information:
 * The container needs to start running as root so that it has enough permissions to drop permissions. (`--user 0:0`)
 * To let the nginx worker processes create files on the host that are owned by the regular user on the host, add `--userns keep-id:uid=101,gid=101`. 
 
-When using container images that drop privileges but where no detailed documentaion is available,
+When using container images that drop privileges but where no detailed documentation is available,
 use these debugging techniques to find out information about the container image:
 
-* Let the bind-mounted directory have permissive permissions (`chmod 777 dir`). After the container has run check which file permissions a newly create file has. See example in [Podman troubleshooting tip](https://github.com/containers/podman/blob/main/troubleshooting.md#34-container-creates-a-file-that-is-not-owned-by-the-users-regular-uid).
+* Let the bind-mounted directory have permissive permissions (`chmod 777 dir`). After the container has run, check which file permissions a newly created file has. See example in [Podman troubleshooting tip](https://github.com/containers/podman/blob/main/troubleshooting.md#34-container-creates-a-file-that-is-not-owned-by-the-users-regular-uid).
 * Trace the use of UIDs and GIDs with the Linux kernel feature [EBPF](https://ebpf.io).
 
 ### Example: trace open system calls in an Nginx container with Inspektor Gadget
