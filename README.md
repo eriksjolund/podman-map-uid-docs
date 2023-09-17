@@ -21,7 +21,7 @@ use these debugging techniques to find out information about the container image
 
 ### Example: trace open system calls in an Nginx container with Inspektor Gadget
 
-Inspektor Gadget (https://www.inspektor-gadget.io) is an eBPF tool and systems inspection framework.
+Inspektor Gadget (https://github.com/inspektor-gadget/inspektor-gadget) is an eBPF tool and systems inspection framework.
 
 The container image _ghcr.io/inspektor-gadget/ig_ needs to be run with `sudo podman run --privileged ...` 
 The container process has full access to the host which means that you need to trust that the container
